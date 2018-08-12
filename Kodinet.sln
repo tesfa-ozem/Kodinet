@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kodinet", "Kodinet.csproj", "{16E62DB3-6593-43EF-9A50-5DC00FC955D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16E62DB3-6593-43EF-9A50-5DC00FC955D3}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{16E62DB3-6593-43EF-9A50-5DC00FC955D3}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{16E62DB3-6593-43EF-9A50-5DC00FC955D3}.Debug|x64.ActiveCfg = Release|x64
+		{16E62DB3-6593-43EF-9A50-5DC00FC955D3}.Debug|x64.Build.0 = Release|x64
+		{16E62DB3-6593-43EF-9A50-5DC00FC955D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16E62DB3-6593-43EF-9A50-5DC00FC955D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16E62DB3-6593-43EF-9A50-5DC00FC955D3}.Release|x64.ActiveCfg = Release|x64
+		{16E62DB3-6593-43EF-9A50-5DC00FC955D3}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {44865AA5-8EF5-48A9-821B-78FBC5D09880}
+	EndGlobalSection
+EndGlobal
