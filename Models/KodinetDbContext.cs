@@ -20,6 +20,8 @@ namespace Kodinet.Models
         public virtual DbSet<Workers> Workers { get; set; }
         public virtual DbSet<Author> Authors { get; set; }
         public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<Company> Companies { get; set; }
+        public virtual DbSet<AppRegistration> AppRegistrations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -41,7 +43,6 @@ namespace Kodinet.Models
 
                
             });
-
             
         }
     }

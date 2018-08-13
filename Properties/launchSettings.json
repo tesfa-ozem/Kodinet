@@ -3,7 +3,7 @@
     "windowsAuthentication": true,
     "anonymousAuthentication": true,
     "iis": {
-      "applicationUrl": "http://localhost/KodinetApi",
+      "applicationUrl": "http://localhost/KodinetApi/swagger",
       "sslPort": 0
     },
     "iisExpress": {
@@ -23,8 +23,7 @@
     },
     "Kodinet": {
       "commandName": "IIS",
-      "launchBrowser": true,
-      "launchUrl": "http://localhost/KodinetApi/swagger"
+      "launchBrowser": true
     }
   }
 }

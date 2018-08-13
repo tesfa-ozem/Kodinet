@@ -1,17 +1,13 @@
-﻿using System;
+﻿using Kodinet.Models;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Kodinet.Models
+namespace Kodinet.Logic
 {
-    public class Company
+    public class CompayDTO
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid CompanyId { get; set; }
         public string CompanyName { get; set; }
         public string Initials { get; set; }
         public string numid_nat { get; set; }
@@ -24,6 +20,13 @@ namespace Kodinet.Models
         public string Commune { get; set; }
         public string QuarterSect { get; set; }
         public string AvenueLoc { get; set; }
+    }
 
+    public class CompanyResults
+    {
+        public string message { get; set; }
+        public int StatusCode { get; set; }
+        public List<Company> Companies { get; set; }
+        public Company company { get; set; }
     }
 }

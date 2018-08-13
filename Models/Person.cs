@@ -29,7 +29,8 @@ namespace Kodinet.Models
         public string Nationality { get; set; }
         public string IdNumber { get; set; }
         public string Photo { get; set; }
-        public string  Signature { get; set; }
+        public string  Signature { get;set; }
+        public Workers workers { get; set; }
         
     }
 }

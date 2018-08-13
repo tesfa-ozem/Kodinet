@@ -19,6 +19,26 @@ namespace Kodinet.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Kodinet.Models.AppRegistration", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("FingerPrint");
+
+                    b.Property<string>("FullName");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<string>("UserName");
+
+                    b.Property<string>("pin");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppRegistrations");
+                });
+
             modelBuilder.Entity("Kodinet.Models.Author", b =>
                 {
                     b.Property<int>("Id")
@@ -55,6 +75,40 @@ namespace Kodinet.Migrations
                     b.HasIndex("AuthorId");
 
                     b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("Kodinet.Models.Company", b =>
+                {
+                    b.Property<Guid>("CompanyId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AvenueLoc");
+
+                    b.Property<string>("Commune");
+
+                    b.Property<string>("CompanyName");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Initials");
+
+                    b.Property<string>("Pobox");
+
+                    b.Property<string>("Prov");
+
+                    b.Property<string>("QuarterSect");
+
+                    b.Property<string>("TownDist");
+
+                    b.Property<string>("description");
+
+                    b.Property<string>("numid_nat");
+
+                    b.Property<string>("tax_num_dgi");
+
+                    b.HasKey("CompanyId");
+
+                    b.ToTable("Companies");
                 });
 
             modelBuilder.Entity("Kodinet.Models.DrivingLicences", b =>
@@ -159,7 +213,8 @@ namespace Kodinet.Migrations
 
                     b.HasKey("WorkerId");
 
-                    b.HasIndex("PersonId");
+                    b.HasIndex("PersonId")
+                        .IsUnique();
 
                     b.ToTable("Workers");
                 });
@@ -182,8 +237,8 @@ namespace Kodinet.Migrations
             modelBuilder.Entity("Kodinet.Models.Workers", b =>
                 {
                     b.HasOne("Kodinet.Models.Person", "Person")
-                        .WithMany()
-                        .HasForeignKey("PersonId")
+                        .WithOne("workers")
+                        .HasForeignKey("Kodinet.Models.Workers", "PersonId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

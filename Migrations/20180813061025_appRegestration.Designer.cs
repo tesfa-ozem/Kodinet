@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kodinet.Migrations
 {
     [DbContext(typeof(KodinetDbContext))]
-    [Migration("20180809081950_PersonUpdate")]
-    partial class PersonUpdate
+    [Migration("20180813061025_appRegestration")]
+    partial class appRegestration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,24 @@ namespace Kodinet.Migrations
                 .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Kodinet.Models.AppRegistration", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("FullName");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<string>("UserName");
+
+                    b.Property<string>("pin");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppRegistrations");
+                });
 
             modelBuilder.Entity("Kodinet.Models.Author", b =>
                 {
@@ -59,9 +77,44 @@ namespace Kodinet.Migrations
                     b.ToTable("Books");
                 });
 
+            modelBuilder.Entity("Kodinet.Models.Company", b =>
+                {
+                    b.Property<Guid>("CompanyId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AvenueLoc");
+
+                    b.Property<string>("Commune");
+
+                    b.Property<string>("CompanyName");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Initials");
+
+                    b.Property<string>("Pobox");
+
+                    b.Property<string>("Prov");
+
+                    b.Property<string>("QuarterSect");
+
+                    b.Property<string>("TownDist");
+
+                    b.Property<string>("description");
+
+                    b.Property<string>("numid_nat");
+
+                    b.Property<string>("tax_num_dgi");
+
+                    b.HasKey("CompanyId");
+
+                    b.ToTable("Companies");
+                });
+
             modelBuilder.Entity("Kodinet.Models.DrivingLicences", b =>
                 {
-                    b.Property<Guid>("Id");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<bool>("CategoryA");
 
@@ -82,16 +135,23 @@ namespace Kodinet.Migrations
                     b.Property<DateTime>("ExpirationDate")
                         .HasColumnName("expirationDate");
 
+                    b.Property<Guid?>("IdNavigationId");
+
+                    b.Property<Guid>("PeronId");
+
                     b.Property<string>("PlaceOfIssue");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IdNavigationId");
 
                     b.ToTable("DrivingLicences");
                 });
 
             modelBuilder.Entity("Kodinet.Models.Person", b =>
                 {
-                    b.Property<Guid>("Id");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("AvenueLoc");
 
@@ -123,16 +183,15 @@ namespace Kodinet.Migrations
 
                     b.Property<string>("Photo");
 
-                    b.Property<string>("Pobox")
-                        .HasColumnName("POBox");
+                    b.Property<string>("Pobox");
 
                     b.Property<string>("Prov");
 
                     b.Property<string>("QuarterSect");
 
-                    b.Property<string>("TownDist");
+                    b.Property<string>("Signature");
 
-                    b.Property<Guid>("WorkerId");
+                    b.Property<string>("TownDist");
 
                     b.HasKey("Id");
 
@@ -141,7 +200,8 @@ namespace Kodinet.Migrations
 
             modelBuilder.Entity("Kodinet.Models.Workers", b =>
                 {
-                    b.Property<Guid>("WorkerId");
+                    b.Property<Guid>("WorkerId")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<int>("EntityId");
 
@@ -170,15 +230,14 @@ namespace Kodinet.Migrations
             modelBuilder.Entity("Kodinet.Models.DrivingLicences", b =>
                 {
                     b.HasOne("Kodinet.Models.Person", "IdNavigation")
-                        .WithOne("DrivingLicences")
-                        .HasForeignKey("Kodinet.Models.DrivingLicences", "Id")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .WithMany()
+                        .HasForeignKey("IdNavigationId");
                 });
 
             modelBuilder.Entity("Kodinet.Models.Workers", b =>
                 {
                     b.HasOne("Kodinet.Models.Person", "Person")
-                        .WithOne("Workers")
+                        .WithOne("workers")
                         .HasForeignKey("Kodinet.Models.Workers", "PersonId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

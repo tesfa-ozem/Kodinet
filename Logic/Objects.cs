@@ -43,6 +43,7 @@ namespace Kodinet.Logic
         public int StatusCode { get; set; }
         public string Message { get; set; }
         public List<Person> person { get; set; }
+        public Person OnePerson { get; set; }
     }
 
 
