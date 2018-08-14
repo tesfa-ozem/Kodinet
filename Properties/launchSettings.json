@@ -3,7 +3,7 @@
     "windowsAuthentication": true,
     "anonymousAuthentication": true,
     "iis": {
-      "applicationUrl": "http://localhost/KodinetApi/swagger",
+      "applicationUrl": "http://localhost/Kodinet/",
       "sslPort": 0
     },
     "iisExpress": {

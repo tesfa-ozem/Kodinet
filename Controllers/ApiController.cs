@@ -102,14 +102,17 @@ namespace Kodinet.Controllers
         }
 
         [HttpPost]
-        public ActionResult FilterPerson([FromBody] string Id)
+        public async Task<ActionResult> FilterPerson([FromBody] Filters filters)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
             MapFields maps = new MapFields();
-            return Ok(maps.GetPerson(Id));
+            var result = await maps.ValidateMember(filters);
+            return Ok(result);
         }
+
+
     }
 }

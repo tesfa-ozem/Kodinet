@@ -44,6 +44,7 @@ namespace Kodinet.Logic
         public string Message { get; set; }
         public List<Person> person { get; set; }
         public Person OnePerson { get; set; }
+        public string Error { get; internal set; }
     }
 
 
